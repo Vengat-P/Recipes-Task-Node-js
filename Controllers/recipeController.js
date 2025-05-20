@@ -51,11 +51,11 @@ export const getRecipeById = async (req, res) => {
 export const updateRecipe = async (req, res) => {
   try {
     const recipeId = req.params.id;
-    const { recipename , formula , ingredients } = req.body
+    const { recipename, formula, ingredients } = req.body;
 
     const result = await recipes.findByIdAndUpdate(
       { _id: recipeId },
-      { recipename , formula , ingredients },
+      { recipename, formula, ingredients },
       { new: true }
     );
     if (result.matchedCount === 0) {
@@ -69,3 +69,20 @@ export const updateRecipe = async (req, res) => {
   }
 };
 
+//Delete Recipe
+
+export const deleteRecipe = async (req, res) => {
+  try {
+    const recipeId = req.params.id;
+    const result = await recipes.findByIdAndDelete({ _id: recipeId });
+    if (!result) {
+      return res.status(404).json({ message: "Recipe Not Found" });
+    }
+    const recipe = await recipes.find();
+    res
+      .status(200)
+      .json({ message: "Recipe Deleted Successfully", data: recipe });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};

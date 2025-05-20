@@ -1,5 +1,5 @@
 import express from 'express'
-import { createRecipe, getAllRecipes, getRecipeById, updateRecipe } from '../Controllers/recipeController.js';
+import { createRecipe, deleteRecipe, getAllRecipes, getRecipeById, updateRecipe } from '../Controllers/recipeController.js';
 
 
 //create express router function
@@ -11,6 +11,7 @@ router.post("/create",createRecipe)
 router.get("/getdata",getAllRecipes)
 router.get("/getdata/:id",getRecipeById)
 router.put("/update/:id",updateRecipe)
+router.delete("/delete/:id",deleteRecipe)
 
 
 
