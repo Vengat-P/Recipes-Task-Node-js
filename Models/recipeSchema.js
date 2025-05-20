@@ -3,19 +3,17 @@ import mongoose from 'mongoose'
 
 // declare RecipeSchema for basic structure for mongodb
 
-const recipeSchema =mongoose.Schema({
-    recipeName: {
+const recipeSchema = mongoose.Schema({
+    recipename: {
         type: String,
-        required : true,
+        required: true
     },
     ingredients: {
         trype: String,
-        required : true,
     },
     formula: {
         type: String,
-        required: true
-    }
+    },
 });
 
 

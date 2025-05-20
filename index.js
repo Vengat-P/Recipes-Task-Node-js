@@ -2,6 +2,7 @@ import express from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
 import connectDB from './Database/dbConfig.js';
+import recipeRoute from './Routers/recipeRouter.js'
 
 // configure dotenv file
 dotenv.config();
@@ -17,9 +18,12 @@ app.use(cors())
 connectDB();
 
 //default router
-app.length("/",(req,res)=>{
+app.get("/",(req,res)=>{
     res.status(200).json({message:"Welcom To Backend"})
 })
+//custom router
+
+app.use("/api/recipes",recipeRoute)
 
 //port initialization
 const port = process.env.PORT
