@@ -28,3 +28,20 @@ export const getAllRecipes = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+//get Recipe By Id
+
+export const getRecipeById = async (req, res) => {
+  try {
+    const recipeId = req.params.id;
+    const recipeDetails = await recipes.findById(recipeId);
+    if (!recipeDetails) {
+      return res.status(404).json({ message: "Recipe Not Found" });
+    }
+    res
+      .status(200)
+      .json({ message: "Recipe Retrived Successfully", data: recipeDetails });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
