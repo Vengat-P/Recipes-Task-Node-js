@@ -45,3 +45,27 @@ export const getRecipeById = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+//update Recipe function
+
+export const updateRecipe = async (req, res) => {
+  try {
+    const recipeId = req.params.id;
+    const { recipename , formula , ingredients } = req.body
+
+    const result = await recipes.findByIdAndUpdate(
+      { _id: recipeId },
+      { recipename , formula , ingredients },
+      { new: true }
+    );
+    if (result.matchedCount === 0) {
+      return res.status(404).json({ message: "Recipe Not Found" });
+    }
+    res
+      .status(200)
+      .json({ message: "Recipe Updated Succesfully", data: result });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
