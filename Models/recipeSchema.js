@@ -6,14 +6,15 @@ import mongoose from 'mongoose'
 const recipeSchema = mongoose.Schema({
     recipename: {
         type: String,
-        required: true
-    },
-    ingredients: {
-        trype: String,
+        required: true,
+        unique: true
     },
     formula: {
         type: String,
     },
+    ingredients: {
+        type: String,
+    }
 });
 
 
