@@ -10,9 +10,11 @@ const recipeSchema = mongoose.Schema({
   },
   formula: {
     type: String,
+    required: true,
   },
   ingredients: {
     type: String,
+    required: true,
   },
 });
 
