@@ -61,11 +61,11 @@
 
 - **getRecipeById** In recipecontroller file make function like same before method til trycatch block. in catch block pass the response of error message. in try block first get id from request using params method and stored as recipeId. then use findById function of mongo db to get given id details and store that details in recipeDetails variable. pass the parameter recipe id in findById function. then write validations if suppose data not found for that. then send response with data recipeDetails. now go to recipe router make path for getdata by id(/getdata/:id) and callgetRecipeById function.then go to postman and fill route with id and cehck it.
 
-**Step 8**
+**Step 9**
 
 - **updateRecipe** In recipecontroller file make function like same before method til trycatch block. In catch block pass the response of error message. In Try block get request id and store into recipeId by using params method. then destructure the schema structure with request.body method. now find the request id details using findByIdAndUpdate method of mongo db method and stored as result.inside of this find function pass \_id of recipeId and all fields object and new as true object. then make validation function for product not found and send response with data of result.then go to recipeRouter and make router for update(/update/:id) and pass updateRecipe function. now go to postman check with cutomized route and in body raw method json type and updtae the details.
 
-**Step 9**
+**Step 10**
 
 - **deleteRecipe** In recipeConroller file make function same like before step til trycatch block. In catch block
   pass the response of error message. In try block get request id and stored as deleteId by using params method. now find the requested id details by using findByIdAndDelete function method of monogo db method. pass the parameter deleteId. this will get the requested id details and delete that recipe.we can enter validation for recipe not found for id not matching.if we want we can show remaining recipes by using find method for stored schema and pass response with data of recipes to show remaining recipes
